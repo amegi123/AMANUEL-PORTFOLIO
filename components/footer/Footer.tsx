@@ -39,9 +39,9 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 font-mono text-[11px] text-charcoal-500">
-            <div className="px-3 py-1.5 rounded-xl bg-gold-50 border border-surface-borderGold text-gold-900 font-semibold shadow-xs">
+            <div className="px-3 py-1.5 rounded-xl bg-gold-50 border border-surface-borderGold text-gold-900 font-semibold shadow-xs" suppressHydrationWarning>
               <span>LOCAL TIME // </span>
-              <span className="text-gold-700 font-bold">{localTime}</span>
+              <span className="text-gold-700 font-bold" suppressHydrationWarning>{localTime}</span>
             </div>
             <button
               onClick={scrollToTop}

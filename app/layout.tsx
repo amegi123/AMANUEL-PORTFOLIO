@@ -62,6 +62,9 @@ export const metadata: Metadata = {
     description:
       "Full-stack software developer building modern web applications, scalable APIs, and intelligent automation systems.",
   },
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -89,16 +92,15 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className={`${inter.variable} ${jetbrainsMono.variable} bg-[#FAF8F5] text-[#18181B] font-sans antialiased selection:bg-gold-200 selection:text-gold-950 min-h-screen flex flex-col`}
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} bg-[#FAF8F5] text-[#18181B] font-sans antialiased selection:bg-gold-200 selection:text-gold-950 min-h-screen flex flex-col`}
-      >
         <CustomCursor />
         {children}
       </body>

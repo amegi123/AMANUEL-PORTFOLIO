@@ -1,8 +1,14 @@
-// Empty Service Worker to satisfy cached browser requests
+// Unregister stale service workers and purge caches
 self.addEventListener("install", () => {
   self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(keys.map((key) => caches.delete(key)));
+    }).then(() => {
+      return self.registration.unregister();
+    })
+  );
 });

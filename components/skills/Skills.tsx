@@ -48,21 +48,21 @@ export const Skills: React.FC = () => {
         key={`${skill.name}-${index}`}
         onMouseEnter={() => setActiveSkill(skill)}
         onMouseLeave={() => setActiveSkill(null)}
-        className="group/tile mx-2.5 sm:mx-3 shrink-0 flex items-center gap-3.5 px-4 py-3 rounded-2xl border border-neutral-200/90 bg-white/85 backdrop-blur-md shadow-xs hover:shadow-gold-md hover:border-amber-500/50 hover:bg-white transition-all duration-200 cursor-pointer select-none"
+        className="group/tile mx-3 sm:mx-4 shrink-0 flex items-center gap-4 px-6 py-4 rounded-2xl sm:rounded-3xl border border-neutral-200/90 bg-white/90 backdrop-blur-md shadow-card-subtle hover:shadow-gold-md hover:border-amber-500/50 hover:bg-white transition-all duration-300 cursor-pointer select-none"
       >
-        <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center shrink-0 group-hover/tile:scale-110 transition-transform duration-200">
-          <TechLogo name={skill.logoKey} size={36} className="w-8 h-8 sm:w-9 sm:h-9 drop-shadow-xs" />
+        <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl bg-surface-50 border border-surface-border flex items-center justify-center shrink-0 group-hover/tile:scale-110 group-hover/tile:border-gold-300 transition-all duration-300 shadow-xs">
+          <TechLogo name={skill.logoKey} size={44} className="w-10 h-10 sm:w-11 sm:h-11 drop-shadow-xs" />
         </div>
         <div className="text-left">
-          <div className="flex items-center gap-2">
-            <span className="text-xs sm:text-sm font-bold text-charcoal-900 tracking-tight block">
+          <div className="flex items-center gap-2.5">
+            <span className="text-sm sm:text-base font-extrabold text-charcoal-900 tracking-tight block">
               {skill.name}
             </span>
-            <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-gold-50 text-gold-800 border border-gold-300/60 font-semibold uppercase">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-gold-50 text-gold-800 border border-gold-300/70 font-bold uppercase">
               {skill.level}
             </span>
           </div>
-          <span className="text-[11px] font-mono text-charcoal-500 block leading-tight mt-0.5">
+          <span className="text-xs sm:text-[13px] font-mono text-charcoal-600 block leading-tight mt-1 font-medium">
             {skill.tag}
           </span>
         </div>
@@ -71,11 +71,11 @@ export const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-20 md:py-28 relative bg-[#FAF8F5] overflow-hidden">
+    <section id="skills" className="py-20 md:py-28 relative bg-[#FAF8F5] overflow-hidden border-t border-surface-border">
       {/* Background Subtle Grid Texture */}
       <div className="absolute inset-0 bg-[radial-gradient(#E5E0D5_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <SectionHeading
             number="02"
@@ -98,12 +98,12 @@ export const Skills: React.FC = () => {
       </div>
 
       {/* Two-Row Auto-Sliding Marquee Showcase */}
-      <div className="relative w-full overflow-hidden pause-on-hover space-y-4 py-2">
+      <div className="relative w-full overflow-hidden pause-on-hover space-y-5 py-3">
         {/* Left & Right Smooth Gradient Edge Masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-36 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent z-20" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-36 bg-gradient-to-l from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-44 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-44 bg-gradient-to-l from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent z-20" />
 
-        {/* Row 1: Auto Slide Left */}
+        {/* Row 1: Auto Slide Left (55s smooth glide) */}
         <div className="flex animate-marquee">
           {/* Duplicate row items to create infinite seamless loop */}
           {rowOneSkills.map((skill, i) => renderSkillTile(skill, i))}
@@ -111,7 +111,7 @@ export const Skills: React.FC = () => {
           {rowOneSkills.map((skill, i) => renderSkillTile(skill, i + rowOneSkills.length * 2))}
         </div>
 
-        {/* Row 2: Auto Slide Right */}
+        {/* Row 2: Auto Slide Right (60s smooth glide) */}
         <div className="flex animate-marquee-reverse">
           {/* Duplicate row items to create infinite seamless loop */}
           {rowTwoSkills.map((skill, i) => renderSkillTile(skill, i))}
@@ -121,8 +121,8 @@ export const Skills: React.FC = () => {
       </div>
 
       {/* Dynamic Architecture Inspector Pill */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-        <div className="p-3.5 sm:p-4 rounded-2xl border border-neutral-200/80 bg-white/70 backdrop-blur-md flex items-center justify-between gap-4 text-xs font-mono shadow-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <div className="p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-neutral-200/80 bg-white/80 backdrop-blur-md flex items-center justify-between gap-4 text-xs font-mono shadow-xs">
           <div className="flex items-center gap-2.5 text-charcoal-600 truncate">
             {activeSkill ? (
               <>
