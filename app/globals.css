@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAF8F5;
+    --foreground: #18181B;
+    --muted: #6E6E7A;
+    --muted-foreground: #9898A4;
+    --border: #E5E0D5;
+    --border-gold: #DFCFB0;
+    --card: #FFFFFF;
+    --card-surface: #F7F4EE;
+    --gold: #C59B27;
+    --gold-light: #D4AF37;
+    --gold-bg: #FCF9EE;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+
+  ::selection {
+    background: #EFE0B2;
+    color: #593F16;
+  }
+}
+
+/* Custom golden scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DFCFB0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C59B27;
+}
+
+/* Ethiopian Tibeb Textile Pattern */
+.tibeb-pattern-bg {
+  background-image: 
+    radial-gradient(#C59B27 0.75px, transparent 0.75px),
+    radial-gradient(#C59B27 0.75px, #FAF8F5 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.15;
+}
+
+/* Monospace technical tags */
+.mono-tag {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle luxury card */
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E0D5;
+  box-shadow: 0 4px 20px -2px rgba(24, 24, 27, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  border-color: #DFCFB0;
+  box-shadow: 0 10px 30px -4px rgba(197, 155, 39, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Gold glow accent */
+.gold-glow {
+  box-shadow: 0 0 30px -5px rgba(197, 155, 39, 0.25);
+}
+
+/* Hide default cursor on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: default;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
