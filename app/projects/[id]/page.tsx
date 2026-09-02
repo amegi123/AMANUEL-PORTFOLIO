@@ -8,7 +8,18 @@ import { getProjects } from "@/lib/db";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { TibebPattern } from "@/components/hero/TibebPattern";
-import { ArrowLeft, ArrowRight, CheckCircle2, Layers, Code2, Sparkles } from "lucide-react";
+import { TechLogo } from "@/components/skills/TechLogo";
+import { ProjectPreviewMockup } from "@/components/projects/ProjectPreviewMockup";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Layers,
+  Sparkles,
+  ExternalLink,
+  Code2,
+  Calendar,
+} from "lucide-react";
 
 export const dynamicParams = true;
 
@@ -62,7 +73,7 @@ export default async function SingleProjectPage({ params }: ProjectPageProps) {
               <Badge variant="gold" size="md">
                 {project.role}
               </Badge>
-              <span className="text-xs font-mono text-charcoal-500 uppercase tracking-wider">
+              <span className="text-xs font-mono text-charcoal-500 uppercase tracking-wider font-semibold">
                 {project.category}
               </span>
             </div>
@@ -78,6 +89,41 @@ export default async function SingleProjectPage({ params }: ProjectPageProps) {
             <p className="text-base sm:text-lg text-charcoal-600 leading-relaxed max-w-3xl font-normal">
               {project.description}
             </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Button variant="primary" size="md" icon={<ExternalLink className="w-4 h-4" />}>
+                    Launch Live Demo
+                  </Button>
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Button variant="outline" size="md" icon={<Code2 className="w-4 h-4 text-gold-600" />}>
+                    Repository
+                  </Button>
+                </a>
+              )}
+            </div>
+          </div>
+
+          {/* Interactive Visual Mockup */}
+          <div className="max-w-4xl mx-auto">
+            <ProjectPreviewMockup
+              project={project}
+            />
           </div>
 
           {/* Architecture & Features Grid */}
@@ -162,13 +208,14 @@ export default async function SingleProjectPage({ params }: ProjectPageProps) {
                   <p className="text-[11px] font-mono text-charcoal-400 mb-2 font-semibold">
                     Technologies
                   </p>
-                  <div className="flex flex-wrap gap-1.5 font-mono text-xs">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.technologies.map((t) => (
                       <span
                         key={t}
-                        className="px-2.5 py-0.5 rounded-md bg-surface-100 border border-surface-border text-charcoal-700"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-100 border border-surface-border text-charcoal-700 text-xs font-mono"
                       >
-                        {t}
+                        <TechLogo name={t} size={14} className="w-3.5 h-3.5" />
+                        <span>{t}</span>
                       </span>
                     ))}
                   </div>

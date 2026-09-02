@@ -39,52 +39,16 @@ export default function ProjectsPage() {
             subtitle="Production systems, multi-tenant software platforms, and automated architectures."
           />
 
-          {projectsData.length === 0 ? (
-            <div className="rounded-2xl border border-surface-border bg-white p-8 sm:p-14 text-center shadow-card-subtle relative overflow-hidden">
-              <div className="max-w-lg mx-auto space-y-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gold-50 border border-surface-borderGold text-gold-700">
-                  <FolderKanban className="w-6 h-6" />
-                </div>
-
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono text-gold-700 font-bold uppercase tracking-wider block">
-                    PORTFOLIO // ARCHIVE
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-charcoal-900">
-                    Selected Projects Being Published
-                  </h3>
-                </div>
-
-                <p className="text-xs sm:text-sm text-charcoal-600 leading-relaxed font-normal">
-                  Detailed technical case studies and architectural blueprints are being curated. Direct architecture briefs and project inquiries are available on request.
-                </p>
-
-                <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
-                  <Link href="/contact">
-                    <Button variant="gold" size="md" icon={<Mail className="w-3.5 h-3.5" />}>
-                      Request Architecture Briefs
-                    </Button>
-                  </Link>
-                  <Link href="/services">
-                    <Button variant="secondary" size="md" icon={<Sparkles className="w-3.5 h-3.5" />}>
-                      View Services & Capabilities
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {projectsData.map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  index={index}
-                  onOpenCaseStudy={(proj) => setSelectedProject(proj)}
-                />
-              ))}
-            </div>
-          )}
+          <div className="space-y-4">
+            {projectsData.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onOpenCaseStudy={(proj) => setSelectedProject(proj)}
+              />
+            ))}
+          </div>
 
           <div className="mt-14 p-8 rounded-2xl bg-white border border-surface-borderGold shadow-gold-sm flex flex-col md:flex-row items-center justify-between gap-6">
             <div>

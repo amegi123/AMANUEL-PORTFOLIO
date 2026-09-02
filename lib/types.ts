@@ -33,6 +33,8 @@ export interface SkillItem {
   name: string;
   level?: "Expert" | "Advanced" | "Proficient";
   description: string;
+  keyUseCase?: string;
+  logoKey?: string;
   icon?: string;
   featured?: boolean;
 }
