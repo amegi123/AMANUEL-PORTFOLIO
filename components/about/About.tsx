@@ -7,40 +7,45 @@ import { QuickProfile } from "./QuickProfile";
 import { Button } from "@/components/ui/Button";
 import {
   Code2,
+  Server,
   Cpu,
-  Database,
   ArrowRight,
   Sparkles,
-  CheckCircle2,
-  Terminal,
-  ShieldCheck,
+  Layers,
+  Check,
 } from "lucide-react";
 
 export const About: React.FC = () => {
-  const pillars = [
+  const domains = [
     {
-      title: "Full-Stack SaaS Architecture",
-      description: "End-to-end web applications with Next.js 15, React 19, TypeScript, and Laravel 11 backends.",
+      number: "01",
+      title: "Web & Product Engineering",
+      description:
+        "Building fast, accessible, and responsive user interfaces with React 19, Next.js App Router, and TypeScript. Obsessed with clean component architecture and smooth micro-interactions.",
+      stack: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS"],
       icon: Code2,
-      accent: "text-gold-600 bg-gold-50 border-gold-200",
     },
     {
-      title: "Autonomous AI & Agent Pipelines",
-      description: "Document intelligence, schema extraction, and webhook workflows using OpenAI, Gemini & n8n.",
+      number: "02",
+      title: "Backend & Distributed Systems",
+      description:
+        "Architecting resilient REST and GraphQL APIs with Laravel and Node.js. Designing multi-tenant PostgreSQL schemas with JSONB indexing and Redis caching for high throughput.",
+      stack: ["Laravel 11", "Node.js", "PostgreSQL", "Redis", "Docker"],
+      icon: Server,
+    },
+    {
+      number: "03",
+      title: "Applied AI & Automation",
+      description:
+        "Integrating multimodal LLMs (OpenAI, Gemini) into production workflows—from structured document extraction and semantic search to automated n8n webhook pipelines.",
+      stack: ["OpenAI GPT-4o", "Google Gemini", "LangChain", "n8n"],
       icon: Cpu,
-      accent: "text-purple-600 bg-purple-50 border-purple-200",
-    },
-    {
-      title: "Resilient Database & Cloud Systems",
-      description: "PostgreSQL relational schemas with JSONB indexing, Redis caching, and Docker deployments.",
-      icon: Database,
-      accent: "text-emerald-600 bg-emerald-50 border-emerald-200",
     },
   ];
 
   return (
     <section id="about" className="py-20 md:py-28 relative bg-[#FAF8F5]">
-      {/* Subtle Background Accent */}
+      {/* Background Subtle Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(#E5E0D5_1px,transparent_1px)] [background-size:24px_24px] opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -49,68 +54,86 @@ export const About: React.FC = () => {
           <SectionHeading
             number="01"
             tag="Engineering Identity"
-            title="Building technology from idea to execution."
-            subtitle="Full-stack software development, resilient APIs, and autonomous AI automation pipelines."
+            title="Crafting software from first principles."
+            subtitle="Full-stack engineer and software architect specializing in scalable web systems, relational backends, and practical AI automation."
             className="mb-0"
           />
         </div>
 
-        {/* 2-Column Cohesive Bento Grid */}
+        {/* 2-Column Clean Editorial Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          {/* Left Column: Core Narrative & Pillars Bento Card */}
-          <div className="lg:col-span-7 rounded-3xl border border-neutral-200/90 bg-white/80 backdrop-blur-md p-7 sm:p-9 shadow-card-subtle flex flex-col justify-between space-y-7">
-            {/* Top Identity Tag & Narrative */}
-            <div className="space-y-4">
+          {/* Left Column: Narrative & 3 Core Domains */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            {/* Narrative Paragraph */}
+            <div className="p-7 sm:p-8 rounded-3xl border border-neutral-200/90 bg-white/80 backdrop-blur-md shadow-card-subtle space-y-4">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-gold-500" />
                 <span className="text-[11px] font-mono text-charcoal-500 font-bold uppercase tracking-wider">
-                  ARCHITECTURAL PHILOSOPHY // CRAFT FIRST
+                  ENGINEERING PERSPECTIVE
                 </span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-extrabold text-charcoal-900 tracking-tight leading-snug">
-                I design and build production-grade web systems, high-throughput APIs, and autonomous AI workflows.
+                I bridge the gap between sound architectural design and clean, production-ready execution.
               </h3>
 
               <p className="text-xs sm:text-sm text-charcoal-600 leading-relaxed font-normal">
-                Focused on delivering end-to-end software solutions—from relational database modeling and secure backend services to high-performance, accessible Next.js interfaces with strict type safety.
+                Whether blueprinting a multi-tenant database from scratch, optimizing API queries for scale, or developing modern interactive user interfaces, I focus on building software that is maintainable, type-safe, and impactful.
               </p>
             </div>
 
-            {/* 3 Core Architecture Pillars */}
-            <div className="space-y-3 pt-2">
-              {pillars.map((pillar, index) => {
-                const Icon = pillar.icon;
+            {/* 3 Core Domains Cards */}
+            <div className="space-y-3.5">
+              {domains.map((domain) => {
+                const Icon = domain.icon;
                 return (
                   <div
-                    key={index}
-                    className="p-4 rounded-2xl border border-surface-border bg-surface-50/70 hover:bg-white hover:border-gold-300 hover:shadow-xs transition-all duration-200 flex items-start gap-3.5 group/item"
+                    key={domain.number}
+                    className="p-5 sm:p-6 rounded-2xl border border-neutral-200/90 bg-white shadow-xs hover:shadow-card-subtle hover:border-gold-300 transition-all duration-200 group"
                   >
-                    <div className={`p-2.5 rounded-xl border shrink-0 ${pillar.accent}`}>
-                      <Icon className="w-4 h-4" />
+                    <div className="flex items-start justify-between gap-4 mb-2">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-surface-100 text-charcoal-800 flex items-center justify-center border border-surface-border group-hover:bg-gold-50 group-hover:text-gold-800 group-hover:border-gold-200 transition-colors">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <h4 className="text-sm sm:text-base font-bold text-charcoal-900 group-hover:text-gold-800 transition-colors">
+                          {domain.title}
+                        </h4>
+                      </div>
+                      <span className="text-[10px] font-mono text-charcoal-400 font-bold">
+                        [{domain.number}]
+                      </span>
                     </div>
-                    <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-charcoal-900 group-hover/item:text-gold-800 transition-colors">
-                        {pillar.title}
-                      </h4>
-                      <p className="text-xs text-charcoal-500 leading-relaxed mt-0.5 font-normal">
-                        {pillar.description}
-                      </p>
+
+                    <p className="text-xs sm:text-[13px] text-charcoal-600 leading-relaxed font-normal mb-3 pl-10.5">
+                      {domain.description}
+                    </p>
+
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-1.5 pl-10.5">
+                      {domain.stack.map((item) => (
+                        <span
+                          key={item}
+                          className="px-2 py-0.5 rounded-md bg-surface-100 text-charcoal-700 border border-surface-border font-mono text-[10px]"
+                        >
+                          {item}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Bottom Actions */}
-            <div className="pt-2 border-t border-surface-border flex flex-wrap items-center justify-between gap-4">
+            {/* Actions */}
+            <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <Link href="/contact">
                   <Button
-                    variant="gold"
+                    variant="primary"
                     size="sm"
-                    icon={<ArrowRight className="w-3.5 h-3.5" />}
-                    className="font-mono text-xs shadow-gold-md"
+                    icon={<ArrowRight className="w-3.5 h-3.5 text-slate-300" />}
+                    className="bg-charcoal-900 text-white hover:bg-charcoal-800 font-mono text-xs shadow-xs"
                   >
                     Discuss a Project
                   </Button>
@@ -122,7 +145,7 @@ export const About: React.FC = () => {
                     icon={<Sparkles className="w-3.5 h-3.5" />}
                     className="font-mono text-xs"
                   >
-                    Explore Services
+                    View Services
                   </Button>
                 </Link>
               </div>
@@ -131,13 +154,13 @@ export const About: React.FC = () => {
                 href="/about"
                 className="text-xs font-mono text-charcoal-500 hover:text-gold-700 flex items-center gap-1 transition-colors"
               >
-                <span>Full Journey</span>
+                <span>Full Bio & Principles</span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
 
-          {/* Right Column: Interactive Developer Spec Console */}
+          {/* Right Column: Craftsman Profile Card */}
           <div className="lg:col-span-5 flex flex-col justify-stretch">
             <QuickProfile />
           </div>
