@@ -51,6 +51,22 @@ module.exports = {
         "gold-lg": "0 16px 36px -6px rgba(197, 155, 39, 0.20)",
         "card-subtle": "0 4px 20px -2px rgba(24, 24, 27, 0.05)",
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-reverse": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 35s linear infinite",
+        "marquee-reverse": "marquee-reverse 35s linear infinite",
+        "marquee-fast": "marquee 25s linear infinite",
+        "marquee-reverse-fast": "marquee-reverse 25s linear infinite",
+      },
     },
   },
   plugins: [],

@@ -39,7 +39,7 @@ export default function ProjectsPage() {
             subtitle="Production systems, multi-tenant software platforms, and automated architectures."
           />
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {projectsData.map((project, index) => (
               <ProjectCard
                 key={project.id}
